@@ -70,7 +70,7 @@ def summarize(items):
     client = anthropic.Anthropic()
     msg = client.messages.create(
         model=MODEL,
-        max_tokens=2000,
+        max_tokens=6000,
         messages=[{"role": "user", "content": PROMPT.format(items="\n".join(items))}],
     )
     return "".join(b.text for b in msg.content if b.type == "text")
